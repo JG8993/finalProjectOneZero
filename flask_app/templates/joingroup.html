@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Join Group</title>
+  </head>
+  <body class="bg-info">
+
+    <div class="d-flex justify-content-center m-3" >
+        <nav class="navbar navbar-dark bg-dark rounded">
+        <h1 class="text-info"> Weights With Friends</h1></a>
+    </div>
+        <h2 class="d-flex justify-content-center m-3">{{user.first_name}}, Are you sure you want to join {{groups.name}}? </h2>
+        <h3 class="d-flex justify-content-center m-3">If so, please confirm below.</h3>
+    <div class="d-flex justify-content-center m-5">
+      <form action="/join_group/{{groups.id}}" method="post" class="text-center m-1">
+        <input type="submit" value="Join Group" class="btn btn-dark text-success">
+    </form>
+    <a href="/success" value="Go back" class="btn btn-dark text-danger m-1">Don't Join</a>
+    </div>
+  </body>
+</html>

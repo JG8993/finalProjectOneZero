@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-info">
+    <div class="d-flex justify-content-center m-3">
+        <nav class="navbar navbar-dark bg-dark rounded">
+        <a class="navbar-brand text-info border-info"><h1> Weights With Friends </h1></a>
+    </div>
+    <form action="/update" method="post" class="container col-4">
+        <h1 class="text-center">Edit {{weights.exercise}}</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} 
+        <div class="form-group">
+            <div class="form-group">
+                <label for="exercise"><strong>Exercise Performed</strong></label>
+                <input type="text" name="exercise" class="form-control" value="{{weights.exercise}}">
+            </div>
+            <div class="form-group">
+                <label for="weight_lifted"><strong>Weight Lifted</strong></label>
+                <input type="number" name="weight_lifted" class="form-control" value="{{weights.weight_lifted}}">
+            </div>
+            <div class="form-group">
+                <label for="current_bodyweight"><strong>Current Bodyweight</strong></label>
+                <input type="number" name="current_bodyweight" class="form-control" value="{{weights.current_bodyweight}}">
+            </div>
+            <input type="submit" value="Update" class="btn btn-dark text-success">
+            <a href="/success" value="Go back" class="btn btn-dark text-danger">Dashboard</a>
+            <input type="hidden" name="id" value="{{weights.id}}">
+        </div>
+    </form>
+</body>
+</html>

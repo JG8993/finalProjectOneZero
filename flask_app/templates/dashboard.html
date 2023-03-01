@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weights With Friends Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="bg-info">
+    <div class="d-flex justify-content-center m-3" >
+        <nav class="navbar navbar-dark bg-dark rounded">
+        <h1 class="text-info"> Weights With Friends </h1></a>
+    </div>
+    <div class="text-center border border-info m-3">
+        <h1>Hello {{user.first_name}}</h1>
+        <h3>Below you'll find a list of groups to join</h3>
+        <p>Don't worry if you join a group by accident, you can join <b>as many groups</b> as you want!</p>
+    </div>
+    <span class="d-flex justify-content-center">
+    <div class="col-5">
+        <table class="table table-info rounded">
+            <thead>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Group Creator</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in groups %} 
+                <tr>
+                    <td>{{ x.name }}</td> 
+                    <td>{{x.creator.first_name}} {{x.creator.last_name}}</td>
+                    <td class="text-center">
+                        <a href="/show_group/{{ x.id }}" class="btn btn-dark">View Group</a>
+                        <a href="/join_group_page/{{x.id}}" class="btn btn-dark">Join Group</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</span>
+    <div class="d-flex justify-content-center">
+    <a href="/logout" class="btn btn-dark m-2 text-danger border-info">Logout</a>
+    <!--<a href="/create_weight_page" class="btn btn-dark">Create an Entry</a>-->
+    <a href="/create_group_page" class="btn btn-dark text-success border-success m-2">Create a Group!</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Weights With Friends</title>
+</head>
+<body class="bg-dark text-info">
+    <div class="d-flex justify-content-center m-3 border border-info">
+        <nav class="navbar navbar-dark bg-dark rounded">
+        <a class="navbar-brand text-info">
+        <h1 class="border-info"> Weights With Friends </h1></a>
+    </div>
+    <div class="d-flex m-5 justify-content-center">
+        <form action="/register" method="post" class="col-2">
+            <h2 class="text-center"><u>Register</u></h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} 
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first_name"><strong>First Name:</strong></label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="last_name"><strong>Last Name:</strong></label>
+                    <input type="text" name="last_name"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="age"><strong>Age:</strong></label>
+                    <input type="number" name="age"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email"><strong>Email:</strong></label>
+                    <input type="text" name="email"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="city"><strong>City:</strong></label>
+                    <input type="text" name="city"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="state"><strong>State:</strong></label>
+                    <input type="text" name="state"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password"><strong>Password</strong></label>
+                    <input type="password" name="password"class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="confirm"><strong>Confirm Password</strong></label>
+                    <input type="password" name="confirm"class="form-control">
+                </div>
+                <input type="submit" value="Register" class="btn btn-dark border-info text-info m-2 p-2">
+        </form>
+        </div>
+        <div class="d-flex justify-content-around col-lg-5">
+        <form action="/login" method="post">
+            <h2 class="text-center"><u>Login</u></h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} 
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email"><strong>Email:</strong></label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password"><strong>Password:</strong></label>
+                    <input type="password" name="password"class="form-control">
+                </div>
+                    <input type="submit" value="Login" class="btn btn-dark border-info text-info m-2 p-2">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

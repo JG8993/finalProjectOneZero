@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>View Group Stats</title>
+  </head>
+  <body class="bg-info">
+    <div class="d-flex justify-content-center m-3" >
+      <nav class="navbar navbar-dark bg-dark rounded">
+      <h1 class="text-info"> Weights With Friends </h1></a>
+  </div>
+  <p class="d-flex justify-content-center"><b>In order to avoid clogging, you may only view each users last 3 entries</b></p>
+  <span class="d-flex justify-content-center">
+    <div class="col-5">
+      <table class="table table-info rounded">
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Weight Lifted</th>
+            <th>Current Bodyweight</th>
+            <th>User</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in weight %}
+          <tr>
+            <td>{{ x.exercise }}</td>
+            <td>{{ x.weight_lifted }}</td>
+            <td>{{ x.current_bodyweight }}</td>
+            <td>{{ x.creator.first_name }}</td>
+            <td class="text-center">
+              <a href="/show_weight/{{ x.id }}" class="btn btn-dark">View</a>
+              {% if x.creator.id == session.user_id %}
+              <a href="/edit_weight/{{ x.id }}" class="btn btn-dark">Edit</a>
+              <a href="/delete_weight/{{ x.id }}" class="btn btn-dark">Delete</a
+              >
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    <div class="d-flex justify-content-center"></div>
+    <a href="/create_weight_page/{{groups.id}}" class="btn btn-dark text-success">Create an Entry</a>
+    <a href="/success" value="Go back" class="btn btn-dark text-danger">Dashboard</a>
+  </div>
+</span>
+  </body>
+</html>

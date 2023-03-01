@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add An Exercise</title>
+</head>
+<body class="bg-info">
+    <div class="d-flex justify-content-center m-3">
+        <nav class="navbar navbar-dark bg-dark rounded">
+        <a class="navbar-brand text-info border-info"><h1> Weights With Friends </h1></a>
+    </div>
+    <form action="/add_new_weight" class="card col-3 mx-auto bg-dark text-info m-3" method="post">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} 
+        <h3 class="text-center text-info">Enter Your Exercise</h3>
+        <div class="form-group">
+            <label for="exercise"><strong>Exercise Performed</strong></label>
+            <input type="text" name="exercise" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="weight_lifted"><strong>Weight Lifted</strong></label>
+            <input type="number" name="weight_lifted" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="current_bodyweight"><strong>Current Bodyweight</strong></label>
+            <input type="text" name="current_bodyweight" class="form-control">
+        </div>
+        <input type="submit" value="Create Entry" class="btn text-info border-info m-2 p-2">
+        <input type="hidden" value="{{group.id}}" name="my_group_id">
+    </form>
+    </div>
+    <div class="card col-3 mx-auto bg-dark text-info">
+        <h3>Barbell Plate Calculator</h3>
+        <h5>This will calculate the number of plates needed per side!</h5>
+        <form action="/calculate/{{group.id}}" method="POST">
+            <label for="weight">Target Weight:</label>
+            <input type="number" name="weight" id="weight">
+            <input type="submit" value="Calculate" class="btn btn-dark text-info border-info m-1">
+            <a href="/success" value="Go back" class="d-flex justify-content-around m-1 btn bg-dark text-info border-info">Dashboard</a>
+        </form>
+    </div>
+    </body>
+</html>
