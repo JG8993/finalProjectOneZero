@@ -3,6 +3,7 @@ Weights With Friends
 This is my first solo project.
 
 Video Explanation of the core features of the app - https://www.youtube.com/watch?v=RlD8JqOTp3E
+Sceenshot of ERD - https://ibb.co/446vWBy
 
 
 WHAT DOES THIS PYTHON APP USE?
